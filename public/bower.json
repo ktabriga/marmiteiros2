@@ -1,0 +1,33 @@
+{
+  "name": "marmiteiros2.0",
+  "version": "0.0.1",
+  "homepage": "https://github.com/btford/angular-express-seed",
+  "authors": [
+    "jhonatan <jhonatancatabriga@gmail.com>"
+  ],
+  "description": "um aplicativo para pedido de marmitas",
+  "keywords": [
+    "angular",
+    "marmitas",
+    "comida",
+    "app"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.20",
+    "angular-ui-router": "~0.2.10",
+    "bootstrap": "~3.2.0",
+    "requirejs": "~2.1.14",
+    "jquery": "~2.1.1",
+    "angular-resource": "~1.2.20",
+    "toastr": "~2.0.3"
+  }
+}
