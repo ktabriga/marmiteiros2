@@ -6,12 +6,25 @@
 var express = require('express'),
   bodyParser = require('body-parser'),
   methodOverride = require('method-override'),
-  errorHandler = require('error-handler'),
+  errorHandler = require('errorhandler'),
   morgan = require('morgan'),
-  routes = require('./routes'),
-  api = require('./routes/api'),
   http = require('http'),
-  path = require('path');
+  path = require('path'),
+  mongoose = require('mongoose'),
+  config = require('./config'),
+  expressJwt = require('express-jwt'),
+  template = require('./template/templateRouter'),
+  api = require('./api');
+
+mongoose.connect(config.urlMongo);
+var db = mongoose.connection;
+db.once('open', function () {
+    console.log('open connection');
+});
+
+db.on('error', function (err) {
+    console.log('connection error', err);
+});
 
 var app = module.exports = express();
 
@@ -33,7 +46,7 @@ var env = process.env.NODE_ENV || 'development';
 
 // development only
 if (env === 'development') {
-  app.use(express.errorHandler());
+  app.use(errorHandler());
 }
 
 // production only
@@ -41,26 +54,20 @@ if (env === 'production') {
   // TODO
 }
 
-
 /**
- * Routes
+ * Security api
  */
+//app.use('/api', expressJwt({
+//    secret: config.securitKey
+//}));
 
-// serve index and view partials
-app.get('/', routes.index);
-app.get('/partials/:name', routes.partials);
-
-// JSON API
-app.get('/api/name', api.name);
-
-// redirect all others to the index (HTML5 history)
-app.get('*', routes.index);
+app.use('/api',api());
+app.use(template());
 
 
 /**
  * Start Server
  */
-
 http.createServer(app).listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
 });
