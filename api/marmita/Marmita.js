@@ -9,6 +9,7 @@ MarmitaSchema = new Schema({
     },
     items: [String],
     diaSemana: {
+        type: String,
         enum: [
             "segunda",
             "terca",

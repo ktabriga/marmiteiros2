@@ -3,15 +3,15 @@
         'angular',
         'app/RouteManager',
         'app/AuthInterceptor',
+        'app/gerencia/Gerencia',
 
-        'bootsrapjs',
-        'angular-resource'
-    ], function (angular, RouteManager, AuthInterceptor) {
+        'bootsrapjs'
+    ], function (angular, RouteManager, AuthInterceptor, Gerencia) {
         var appName = 'app.app',
             dependencies = [
                 'ui.router',
-                'ngResource',
 
+                Gerencia,
                 AuthInterceptor
             ],
             app;

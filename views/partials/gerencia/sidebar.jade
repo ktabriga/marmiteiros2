@@ -1,0 +1,6 @@
+div(ng-controller= "SideBarController as ctrl")
+        ul.nav.nav-sidebar
+            li(class="{{ctrl.getAtivo('pedidos')}}")
+                a(href='#', ui-sref='painel.pedido', ng-click="ctrl.selecionarItem('pedidos')") Pedidos
+            li(class="{{ctrl.getAtivo('marmitas')}}")
+                a(href='#', ui-sref='painel.marmita', ng-click="ctrl.selecionarItem('marmitas')") Marmitas

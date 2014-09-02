@@ -1,0 +1,54 @@
+h1 Marmitas
+hr
+div(ng-controller="MarmitaController as ctrl")
+    .row
+        .col-md-4.form-group
+            .input-group
+                input.form-control(placeholder='Pesquisa', ng-model='ctrl.query')
+                .input-group-addon
+                    span.glyphicon.glyphicon-search
+
+        .col-sm-3.col-sm-offset-5.form-group
+            button.btn.btn-success.form-control Nova Marmita &nbsp;
+                span.glyphicon.glyphicon-new-window
+    .row.form-group
+        .jumbotron(ng-repeat='marmita in ctrl.marmitas | filter: ctrl.query')
+            .row
+                .col-md-9
+                    .row
+                        .col-sm-5
+                            label.control-label Nome
+                            p {{marmita.nome}}
+                        .col-sm-5.form-group
+                            label.control-label Valor Base
+                            p {{marmita.valorBase | currency}}
+                        .col-sm-2
+                            label.control-label Dia Semana
+                            p {{marmita.diaSemana}}
+                    .row
+                        .col-md-6
+                            table.table.table-condensed
+                                thead
+                                    th Itens
+                                tbody
+                                    tr(ng-repeat='item in marmita.items')
+                                        td {{item}}
+                        .col-md-6
+                            table.table.table-condensed
+                                thead
+                                    th Opcionais
+                                tbody
+                                    tr(ng-repeat='opcional in marmita.opcionais')
+                                        td {{opcional.nome}}
+                                            ul
+                                                li(ng-repeat='opcao in opcional.opcoes') {{opcao.nome}},&nbsp;{{opcao.valorAdicional | currency}}
+                .col-md-3
+                    .row
+                        button.btn.btn-link.form-control Remover &nbsp;
+                            span.glyphicon.glyphicon-trash
+                    .row
+                        button.btn.btn-link.form-control Alterar &nbsp;
+                            span.glyphicon.glyphicon-pencil
+
+
+

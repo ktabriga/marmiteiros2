@@ -4,11 +4,7 @@ var response = require('./response'),
 
 module.exports = function (Model, config) {
 
-    var getConfig = function () {
-        return config && config;
-    };
-
-    var create = function (req, res) {
+     var create = function (req, res) {
         var data = req.body,
             object = new Model(data);
 
