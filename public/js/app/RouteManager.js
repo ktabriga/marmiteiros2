@@ -31,6 +31,15 @@
 
                 }
             })
+            .state('painel.novaMarmita', {
+                url: '/nova-marmita',
+                views: {
+                    'content@painel': {
+                        templateUrl: 'gerencia/novaMarmita'
+                    }
+
+                }
+            })
             .state('painel.pedido', {
                 url: '/pedidos',
                 views: {

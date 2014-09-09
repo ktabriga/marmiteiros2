@@ -1,7 +1,90 @@
-h1 Marmitas
-hr
-.row
-    .col-md-5.form-group
-        label.control-label Nome
-        input.form-control
-
+div(ng-controller='MarmitaController as ctrl')
+    h1
+        a(href="javascript:void(0)", ui-sref='painel.marmita')
+            i.glyphicon.glyphicon-hand-left &nbsp;
+    hr
+    .row
+        .col-md-6.form-group
+            label.control-label Nome
+            input.form-control
+        .col-md-3.form-group
+            label.control-label Valor Base
+            .input-group
+                input.form-control
+                .input-group-addon
+                    i.glyphicon.glyphicon-usd
+        .col-md-3.form-group
+            label.control-label Dia Semana
+            select.form-control
+                option
+                option Segunda
+                option Terça
+                option Quarta
+                option Quinta
+                option Sexta
+                option Sabado
+                option Domingo
+    .row
+        .col-md-6
+            fieldset
+                legend Itens/Composição
+                .row
+                    .col-md-12.form-group
+                        .input-group
+                            input.form-control
+                            .input-group-btn
+                                button.btn.btn-default
+                                    i.glyphicon.glyphicon-plus
+                .row
+                    .col-md-10.col-md-offset-1
+                        table.table.table-condensed
+                            thead
+                                th Descrição
+                            tbody
+                               tr
+                                 td
+        .col-md-6
+            fieldset
+                .row
+                    .col-md-9
+                        legend Opcionais
+                    .col-md-3
+                        a.btn.btn-success(data-toggle="modal", data-target="#opcinalModal") Adicionar
+    .modal.fade#opcinalModal
+        .modal-dialog.modal-lg
+            .modal-content
+                .modal-header
+                    h4 Opcional
+                .modal-body
+                    .row
+                        .col-md-12.form-group
+                            label.control-label Nome
+                            input.form-control(placeholder='ex: Tamanho')
+                    fieldset
+                        legend Opções
+                        .row
+                            .col-md-6.form-group
+                                label.control-label Nome opção
+                                input.form-control(placeholder='ex: G')
+                            .col-md-4.form-group
+                                label.control-label Valor Opção
+                                .input-group
+                                    input.form-control
+                                    .input-group-addon
+                                        i.glyphicon.glyphicon-usd
+                            .col-md-2
+                                label.control-label &nbsp;
+                                br
+                                button.btn.btn-success Adicionar
+                    .row
+                        .col-md-12
+                            table.table.table-condensed
+                                thead
+                                    th.col-md-6 Nome da opção
+                                    th.col-md-4 Valor da opção
+                                    th.col-md-2
+                                tbody
+                                    tr
+                .modal-footer
+                    button.btn.btn-primary.form-group Salvar
+                    button.btn.btn-link(data-dismiss="modal") Cancelar

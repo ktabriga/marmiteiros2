@@ -9,7 +9,7 @@ div(ng-controller="MarmitaController as ctrl")
                     span.glyphicon.glyphicon-search
 
         .col-sm-3.col-sm-offset-5.form-group
-            button.btn.btn-success.form-control Nova Marmita &nbsp;
+            a.btn.btn-success.form-control(ui-sref="painel.novaMarmita") Nova Marmita &nbsp;
                 span.glyphicon.glyphicon-new-window
     .row.form-group
         .jumbotron(ng-repeat='marmita in ctrl.marmitas | filter: ctrl.query')
