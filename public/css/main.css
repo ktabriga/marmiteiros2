@@ -32,3 +32,24 @@
 body {
     padding-top: 10px;
 }
+
+
+
+.tab-week-marmitas {
+  background-color: #e74c3c;
+  height: 50px;
+
+}
+.tab-week-marmitas li {
+  height: 100%;
+  padding-right: 0;
+  padding-left: 0;
+}
+.tab-week-marmitas a {
+  color: white
+}
+
+.tab-week-marmitas a:hover {
+  background-color: #ffffff;
+  color: #e74c3c;
+}

@@ -12,6 +12,19 @@ div(ng-controller="MarmitaController as ctrl")
             a.btn.btn-success.form-control(ui-sref="painel.novaMarmita") Nova Marmita &nbsp;
                 span.glyphicon.glyphicon-new-window
     .row.form-group
+        ul.nav.nav-tabs.tab-week-marmitas.text-center(role='tablist')
+            li.col-sm-2
+                a Segunda
+            li.col-sm-2
+                a Terça
+            li.col-sm-2
+                a Quarta
+            li.col-sm-2
+                a Quinta
+            li.col-sm-2
+                a Sexta
+            li.col-sm-2
+                a Sábado
         .jumbotron(ng-repeat='marmita in ctrl.marmitas | filter: ctrl.query')
             .row
                 .col-md-9
@@ -49,6 +62,3 @@ div(ng-controller="MarmitaController as ctrl")
                     .row
                         button.btn.btn-link.form-control Alterar &nbsp;
                             span.glyphicon.glyphicon-pencil
-
-
-
